@@ -17,6 +17,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             vb.memory = 512
             vb.gui = false
         end
+        db_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
+        db_config.vm.provision :salt do |salt|
+            salt.minion_config = "saltstack/etc/salt/database.yml"
+            salt.run_highstate = true
+            salt.colorize = true
+            salt.verbose = true
+            salt.log_level = "info"
+        end
     end
 
 end
