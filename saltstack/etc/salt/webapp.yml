@@ -1,0 +1,6 @@
+##### Primary configuration settings #####
+##########################################
+
+master: localhost
+id: webapp
+file_client: local

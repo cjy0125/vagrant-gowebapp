@@ -28,4 +28,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
     end
 
+    # node: webapp
+        config.vm.define :'webapp' do |wa_config| 
+        wa_config.vm.box = "ubuntu/trusty64"
+        wa_config.vm.host_name = "webapp.local"
+        wa_config.vm.network :private_network, ip: "192.168.133.101"
+        wa_config.vm.provider :virtualbox do |vb|
+            vb.name = "webapp"
+            vb.cpus = 1
+            vb.memory = 512
+            vb.gui = false
+        end
+        wa_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
+        wa_config.vm.synced_folder "saltstack/pillar/", "/srv/pillar"
+        wa_config.vm.provision :salt do |salt|
+            salt.minion_config = "saltstack/etc/salt/webapp.yml"
+            salt.run_highstate = true
+            salt.colorize = true
+            salt.verbose = true
+            salt.log_level = "info"
+        end
+    end
+
 end
