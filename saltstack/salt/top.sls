@@ -1,7 +1,4 @@
 base:
-  '*':
-    - common
-
   'database':
-    - mysql
+    - mysql.server
 
