@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         db_config.vm.provider :virtualbox do |vb|
             vb.name = "database"
             vb.cpus = 1
-            vb.memory = 512
+            vb.memory = 1024
             vb.gui = false
         end
         db_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
