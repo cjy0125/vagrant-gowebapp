@@ -18,6 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             vb.gui = false
         end
         db_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
+        db_config.vm.synced_folder "saltstack/pillar/", "/srv/pillar"
         db_config.vm.provision :salt do |salt|
             salt.minion_config = "saltstack/etc/salt/database.yml"
             salt.run_highstate = true
