@@ -7,3 +7,4 @@ base:
   'database':
     - mysql.server
     - mysql.user
+    - dbschema

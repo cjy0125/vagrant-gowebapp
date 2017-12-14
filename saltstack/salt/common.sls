@@ -1,4 +1,5 @@
-common_pkgs:
-  pkg.installed:
-    - name: vim
+work_dir:
+  file.directory:
+    - names: 
+        - /opt/gowebapp
     
