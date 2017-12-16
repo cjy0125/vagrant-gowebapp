@@ -1,6 +1,7 @@
 base:
   '*':
     - common
+    - sensu.client
   'monitor':
     - rabbitmq
     - redis.server
