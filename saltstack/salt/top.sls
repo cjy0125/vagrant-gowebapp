@@ -2,6 +2,7 @@ base:
   '*':
     - common
   'monitor':
+    - rabbitmq
     - redis.server
     - sensu.server
   'webapp':
