@@ -14,7 +14,9 @@ include:
     - dataset:
         api:
           host: {{ sensu.api.host }}
-          password: {{ sensu.api.password }}
           port: {{ sensu.api.port }}
+{%- if sensu.api.auth == True %}
+          password: {{ sensu.api.password }}
           user: {{ sensu.api.user }}
+{% endif %}
 
