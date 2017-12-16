@@ -6,6 +6,28 @@ Vagrant.require_version ">= 1.9.1"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+    # node: monitor
+        config.vm.define :'monitor' do |mt_config| 
+        mt_config.vm.box = "ubuntu/trusty64"
+        mt_config.vm.host_name = "monitor.local"
+        mt_config.vm.network :private_network, ip: "192.168.133.99"
+        mt_config.vm.provider :virtualbox do |vb|
+            vb.name = "monitoring"
+            vb.cpus = 1
+            vb.memory = 512
+            vb.gui = false
+        end
+        mt_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
+        mt_config.vm.synced_folder "saltstack/pillar/", "/srv/pillar"
+        mt_config.vm.provision :salt do |salt|
+            salt.minion_config = "saltstack/etc/salt/monitor.yml"
+            salt.run_highstate = true
+            salt.colorize = true
+            salt.verbose = true
+            salt.log_level = "info"
+        end
+    end
+
     # node: Database
     config.vm.define :'database' do |db_config| 
         db_config.vm.box = "ubuntu/trusty64"
@@ -49,5 +71,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             salt.log_level = "info"
         end
     end
+    
 
 end
