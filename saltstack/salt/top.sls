@@ -1,6 +1,8 @@
 base:
   '*':
     - common
+  'monitor':
+    - sensu.server
   'webapp':
     - golang
     - webapp
