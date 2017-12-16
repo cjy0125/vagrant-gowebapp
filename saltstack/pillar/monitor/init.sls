@@ -3,6 +3,11 @@ sensu:
     host: 192.168.133.99
     user: mquser
     password: mqpass
+  uchiwa:
+        users:
+            - username: monitor
+              password: foo
+              role: { readonly: False }
 
 redis:
   server:
