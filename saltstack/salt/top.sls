@@ -8,6 +8,8 @@ base:
     - sensu.server
     - sensu.api
     - sensu.uchiwa
+    - monitors.common
+    
   'webapp':
     - golang
     - webapp

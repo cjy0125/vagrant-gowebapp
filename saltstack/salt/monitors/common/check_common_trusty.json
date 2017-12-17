@@ -1,0 +1,24 @@
+{
+    "checks": {
+        "CHECK_FREE_DISK_SPACE": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/usr/lib/nagios/plugins/check_disk -w 25% -c 10%",
+            "interval": 60,
+            "subscribers": [
+                "all"
+            ]
+        },
+        "CHECK_CPU_LOAD": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/usr/lib/nagios/plugins/check_load -w 0.75 -c 0.9",
+            "interval": 60,
+            "subscribers": [
+                "all"
+            ]
+        }
+    }
+}
