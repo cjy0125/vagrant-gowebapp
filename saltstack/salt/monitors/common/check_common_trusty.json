@@ -19,6 +19,16 @@
             "subscribers": [
                 "all"
             ]
+        },
+        "CHECK_MEMORY_USAGE": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/etc/sensu/plugins/check_mem.sh -w 80 -c 95",
+            "interval": 60,
+            "subscribers": [
+                "all"
+            ]
         }
     }
 }
