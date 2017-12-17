@@ -3,16 +3,17 @@
 
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">= 1.9.1"
+SALTVERBOSE = false
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # node: monitor
         config.vm.define :'monitor' do |mt_config| 
         mt_config.vm.box = "ubuntu/trusty64"
-        mt_config.vm.host_name = "monitor.local"
+        mt_config.vm.host_name = "monitor.trusty"
         mt_config.vm.network :private_network, ip: "192.168.133.99"
         mt_config.vm.provider :virtualbox do |vb|
-            vb.name = "monitoring"
+            vb.name = "monitor"
             vb.cpus = 1
             vb.memory = 512
             vb.gui = false
@@ -23,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             salt.minion_config = "saltstack/etc/salt/monitor.yml"
             salt.run_highstate = true
             salt.colorize = true
-            salt.verbose = true
+            salt.verbose = SALTVERBOSE
             salt.log_level = "info"
         end
     end
@@ -31,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # node: Database
     config.vm.define :'database' do |db_config| 
         db_config.vm.box = "ubuntu/trusty64"
-        db_config.vm.host_name = "database.local"
+        db_config.vm.host_name = "database.trusty"
         db_config.vm.network :private_network, ip: "192.168.133.100"
         db_config.vm.provider :virtualbox do |vb|
             vb.name = "database"
@@ -45,7 +46,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             salt.minion_config = "saltstack/etc/salt/database.yml"
             salt.run_highstate = true
             salt.colorize = true
-            salt.verbose = true
+            salt.verbose = SALTVERBOSE
             salt.log_level = "info"
         end
     end
@@ -53,7 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # node: webapp
         config.vm.define :'webapp' do |wa_config| 
         wa_config.vm.box = "ubuntu/trusty64"
-        wa_config.vm.host_name = "webapp.local"
+        wa_config.vm.host_name = "webapp.trusty"
         wa_config.vm.network :private_network, ip: "192.168.133.101"
         wa_config.vm.provider :virtualbox do |vb|
             vb.name = "webapp"
@@ -67,7 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             salt.minion_config = "saltstack/etc/salt/webapp.yml"
             salt.run_highstate = true
             salt.colorize = true
-            salt.verbose = true
+            salt.verbose = SALTVERBOSE
             salt.log_level = "info"
         end
     end
