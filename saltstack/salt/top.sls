@@ -9,7 +9,8 @@ base:
     - sensu.api
     - sensu.uchiwa
     - monitors.common
-    
+    - monitors.webapp
+
   'webapp':
     - golang
     - webapp

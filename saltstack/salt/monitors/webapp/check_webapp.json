@@ -1,0 +1,14 @@
+{
+    "checks": {
+        "CHECK_PORTAL_HTTP": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/usr/lib/nagios/plugins/check_http -H localhost",
+            "interval": 10,
+            "subscribers": [
+                "webapp"
+            ]
+        }
+    }
+}
