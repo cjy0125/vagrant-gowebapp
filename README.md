@@ -34,5 +34,5 @@ Following shows the relevant informations for each nodes, and also you can direc
 | Hostname | IP | Description  |
 |----------|----|----------------|
 |monitor|192.168.133.99| Sensu monitor with Uchiwa dashboard|
-|database| 192.168.133.100| MySQL data with initialize DB schema for gowebapp|
+|database| 192.168.133.100| MySQL with initialize DB schema for gowebapp|
 |webapp| 192.168.133.101| [Gowebapp](https://github.com/josephspurrier/gowebapp): Basic MVC Web Application in Go|
