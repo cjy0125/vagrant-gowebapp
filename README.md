@@ -20,4 +20,4 @@ Please install and setup following tools for the preparation
 4. Once everything is done, check the gowebapp portal
 http://192.168.133.101
 5. And the dashboard: Uchiwa
-http://192.168.133.99:3000
+http://192.168.133.99:3000 with user: monitor password: foo
