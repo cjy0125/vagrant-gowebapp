@@ -9,6 +9,16 @@
             "subscribers": [
                 "database"
             ]
+        },
+        "CHECK_MYSQL_CON": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/usr/lib/nagios/plugins/check_mysql -H 192.168.133.100 -u monitor",
+            "interval": 60,
+            "subscribers": [
+                "database", "webapp"
+            ]
         }
     }
 }
