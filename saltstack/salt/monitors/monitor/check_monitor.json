@@ -1,0 +1,24 @@
+{
+    "checks": {
+        "CHECK_SRV_REDIS": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/etc/sensu/plugins/check_mem.sh -s redis-server",
+            "interval": 60,
+            "subscribers": [
+                "monitor"
+            ]
+        },
+        "CHECK_SRV_RABBITMQ": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/etc/sensu/plugins/check_mem.sh -s rabbitmq-server",
+            "interval": 60,
+            "subscribers": [
+                "monitor"
+            ]
+        }
+    }
+}

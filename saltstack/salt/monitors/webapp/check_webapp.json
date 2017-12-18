@@ -9,6 +9,16 @@
             "subscribers": [
                 "webapp"
             ]
+        },
+        "CHECK_SRV_GOWEBAPP": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/etc/sensu/plugins/check_mem.sh -s gowebapp",
+            "interval": 10,
+            "subscribers": [
+                "webapp"
+            ]
         }
     }
 }

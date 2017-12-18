@@ -10,6 +10,8 @@ base:
     - sensu.uchiwa
     - monitors.common
     - monitors.webapp
+    - monitors.monitor
+    - monitors.database
 
   'webapp':
     - golang

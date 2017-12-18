@@ -1,0 +1,14 @@
+{
+    "checks": {
+        "CHECK_SRV_MYSQL": {
+            "handlers": [
+                "default"
+            ],
+            "command": "/etc/sensu/plugins/check_mem.sh -s mysql-server",
+            "interval": 60,
+            "subscribers": [
+                "database"
+            ]
+        }
+    }
+}
